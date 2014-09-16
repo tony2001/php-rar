@@ -68,6 +68,7 @@ extern zend_module_entry rar_module_entry;
 #include "unrar/raros.hpp"
 /* no need to reinclude windows.h or new.h */
 #define LEAN_RAR_INCLUDES
+#include "unrar/rartypes.hpp"
 #include "unrar/os.hpp"
 #include "unrar/dll.hpp"
 #include "unrar/version.hpp"

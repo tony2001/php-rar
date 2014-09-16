@@ -792,13 +792,13 @@ static int _rar_get_archive_and_fragment(php_stream_wrapper *wrapper,
 	}
 
 	/* Note that RAR treats \ and / the same way.
-	 * If it finds any of them, it replaces it with PATHDIVIDER.
+	 * If it finds any of them, it replaces it with SPATHDIVIDER.
 	 * Do the same for the user-supplied fragment */
 	{
 		wchar_t *ptr;
 		for (ptr = *fragment; *ptr != L'\0'; ptr++) {
 			if (*ptr == L'\\' || *ptr == L'/')
-				*ptr = PATHDIVIDERW[0];
+				*ptr = SPATHDIVIDER[0];
 		}
 	}
 
@@ -1225,7 +1225,7 @@ static php_stream *php_stream_rar_dir_opener(php_stream_wrapper *wrapper,
 
 	/* Remove the ending in the path separator */
 	if (fragment_len > 0 &&
-			self->directory[fragment_len - 1] == PATHDIVIDERW[0]) {
+			self->directory[fragment_len - 1] == SPATHDIVIDER[0]) {
 		self->directory[fragment_len - 1] = L'\0';
 		self->dir_size = fragment_len;
 	}

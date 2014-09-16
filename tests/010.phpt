@@ -12,7 +12,7 @@ echo count($entries)." files:\n\n";
 foreach ($entries as $e) {
 	$stream = $e->getStream();
 	echo $e->getName().":\n";
-	while (!feof($stream)) {
+	while ($stream && !feof($stream)) {
 		echo fread($stream, 8192);
 	}
 	echo "\n\n";
